@@ -9,36 +9,45 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var showDetails = false
+    @State var pressed = false
     
     var body: some View {
-        ZStack {
-            Image("budgeting-background")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-                .blur(radius: 10)
-            Text("PENNY PINCHERS")
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.white)
-                .offset(y: -20)
-            Text("Start saving smarter TODAY!")
-                .font(.system(size: 20.0))
-                .foregroundColor(.white)
-                .offset(y:200)
-            Image("Krabs")
-                .resizable()
-                .frame(width: 80.0, height: 80.0)
-                .offset(y:-100)
-            Button("Press Me") { //within this block is where you tell the button what you want it to do
-                print("Button pressed!")
-            } //this section describes what it will look like
-            .padding()
-            .background(Color(red: 0, green: 0, blue: 0.2))
-            .clipShape(Capsule())
-            .offset(y:280)
-
+        NavigationView{
+            ZStack {
+                Image("budgeting-background")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+                    .blur(radius: 10)
+                Text("PENNY PINCHERS")
+                    .font(.largeTitle)
+                    .fontWeight(.black)
+                    .foregroundColor(.white)
+                    .offset(y: -150)
+                Text("Start saving smarter TODAY!")
+                    .font(.system(size: 20.0))
+                    .foregroundColor(.white)
+                    .offset(y:-70)
+                Button("Start Budgeting") { //within this block is where you tell the button what you want it to do
+                    pressed = true
+                } //this section describes what it will look like
+                    .padding()
+                    .background(Color(red: 0, green: 0, blue: 0.3))
+                    .clipShape(Capsule())
+                
+                if(pressed == true){
+                    NavigationLink(
+                        destination: ContentView2(),
+                        label: {
+                            Text("done")
+                        })
+                } else {
+                    Image("sad-cat-button")
+                        .resizable()
+                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .offset(y:200)
+                }
+            }
         }
     }
 }
