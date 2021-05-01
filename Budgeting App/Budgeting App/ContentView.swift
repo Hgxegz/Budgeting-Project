@@ -37,7 +37,8 @@ struct ContentView: View {
                 
                 if(pressed == true){
                     NavigationLink(
-                        destination: ContentView2(),
+                        //destination: ContentView2(),
+                        destination: ContentView3(),
                         label: {
                             Text("done")
                         })
