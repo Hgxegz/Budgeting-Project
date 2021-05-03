@@ -14,6 +14,7 @@
 		627652C92631508F00C920D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627652C82631508F00C920D5 /* Preview Assets.xcassets */; };
 		627652D42631508F00C920D5 /* Budgeting_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627652D32631508F00C920D5 /* Budgeting_AppTests.swift */; };
 		627652DF2631508F00C920D5 /* Budgeting_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627652DE2631508F00C920D5 /* Budgeting_AppUITests.swift */; };
+		628ABB4A263E162F00BDC76B /* ContentView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628ABB49263E162F00BDC76B /* ContentView3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		627652DA2631508F00C920D5 /* Budgeting AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Budgeting AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		627652DE2631508F00C920D5 /* Budgeting_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budgeting_AppUITests.swift; sourceTree = "<group>"; };
 		627652E02631508F00C920D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		628ABB49263E162F00BDC76B /* ContentView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				627652CA2631508F00C920D5 /* Info.plist */,
 				622E1004263169BD00C79E52 /* ContentView2.swift */,
 				627652C72631508F00C920D5 /* Preview Content */,
+				628ABB49263E162F00BDC76B /* ContentView3.swift */,
 			);
 			path = "Budgeting App";
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				622E1005263169BD00C79E52 /* ContentView2.swift in Sources */,
 				627652C42631508E00C920D5 /* ContentView.swift in Sources */,
+				628ABB4A263E162F00BDC76B /* ContentView3.swift in Sources */,
 				627652C22631508E00C920D5 /* Budgeting_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

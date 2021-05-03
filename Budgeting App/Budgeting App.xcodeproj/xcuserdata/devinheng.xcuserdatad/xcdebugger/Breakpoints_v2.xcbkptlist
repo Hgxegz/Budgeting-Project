@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E147CD25-CEDC-4832-8382-B7374E8E6E1D"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Budgeting App/ContentView2.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "ContentView2"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87 - d6f8931a58ab4a7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Budgeting_App.ContentView2.monthlyIncome : Swift.String"
+                  moduleName = "Budgeting App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devinheng/Budgeting-Project/Budgeting%20App/Budgeting%20App/ContentView2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87 - ca50ba3c8fcc0ea1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budgeting_App.ContentView2.monthlyIncome.getter : Swift.String"
+                  moduleName = "Budgeting App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devinheng/Budgeting-Project/Budgeting%20App/Budgeting%20App/ContentView2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87 - e6c19b1836db1eb5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budgeting_App.ContentView2.monthlyIncome.setter : Swift.String"
+                  moduleName = "Budgeting App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devinheng/Budgeting-Project/Budgeting%20App/Budgeting%20App/ContentView2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87 - 26395f0605a43ec8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budgeting_App.ContentView2.monthlyIncome.modify : Swift.String"
+                  moduleName = "Budgeting App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devinheng/Budgeting-Project/Budgeting%20App/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87 - 9e5b5666c8eec463"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budgeting_App.ContentView2.monthlyIncome.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Budgeting App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devinheng/Budgeting-Project/Budgeting%20App/Budgeting%20App/ContentView2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87 - 55124e5cab5f04ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budgeting_App.ContentView2.$monthlyIncome.getter : SwiftUI.Binding&lt;Swift.String&gt;"
+                  moduleName = "Budgeting App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devinheng/Budgeting-Project/Budgeting%20App/Budgeting%20App/ContentView2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "A037CEF8-608D-4A95-BBE4-7B2BFCCF1E87 - b84ce9b04e4401fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Budgeting_App.ContentView2.init() -&gt; Budgeting_App.ContentView2"
+                  moduleName = "Budgeting App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devinheng/Budgeting-Project/Budgeting%20App/Budgeting%20App/ContentView2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

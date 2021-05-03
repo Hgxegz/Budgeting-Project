@@ -98,9 +98,13 @@ struct ContentView2: View {
                     let customer1 = FinancialDetails(income: monthlyIncome, saving: savingGoal, house: housing, essent: essential)
                     
                     let customer2 = financialDetailsInt(incomeInt: Int(monthlyIncome) ?? 0, savingInt: Int(savingGoal) ?? 0, houseInt: Int(housing) ?? 0, essentInt: Int(essential) ?? 0)
-                    //NavigationLink(
-                        //destination: ContentView2(),
-                        //label: {
+                    NavigationLink(
+                        destination: ContentView3(),
+                            label: {
+                                Text("done")
+                                    .offset(y:200)
+                            })
+                        .offset(y:200)
                         Text(customer1.income)
                             .offset(y:-250)
                             .foregroundColor(Color.white)
