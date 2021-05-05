@@ -13,6 +13,11 @@ class FinancialDetails: ObservableObject {
     }
 }
 
+extension UIScreen {
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+}
+
 //testing to see if the class can hold ints
 class financialDetailsInt {
     var incomeInt: Int
@@ -27,6 +32,7 @@ class financialDetailsInt {
     }
 }
 
+
 //THIS IS THE ACTUAL VIEW
 struct ContentView2: View {
     //these variables are to hold the user inputs
@@ -34,6 +40,7 @@ struct ContentView2: View {
     @State var savingGoal: String = ""
     @State var housing: String = ""
     @State var essential: String = ""
+    
     
     //this is for the button
     @State var pressed = false
@@ -96,27 +103,59 @@ struct ContentView2: View {
                     //let housingInt = Int(housing) ?? 0
                     //let essentialInt = Int(essential) ?? 0
                     let customer1 = FinancialDetails(income: monthlyIncome, saving: savingGoal, house: housing, essent: essential)
-                    
                     let customer2 = financialDetailsInt(incomeInt: Int(monthlyIncome) ?? 0, savingInt: Int(savingGoal) ?? 0, houseInt: Int(housing) ?? 0, essentInt: Int(essential) ?? 0)
-                    NavigationLink(
+                    ZStack(alignment: .top) {
+                        HStack() {
+                            Text("Budget Summary")
+                                .font(.callout)
+                                .bold()
+                        }.padding()
+                        ZStack() {
+                            Path { path in
+                                path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                                path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 290), clockwise: true)
+                            }.fill(Color.green)
+                            Path { path in
+                                path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                                path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 290), endAngle: Angle(degrees: 180), clockwise: true)
+                            }.fill(Color.yellow)
+                            Path { path in
+                                path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                                path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 100), clockwise: true)
+                            }.fill(Color.blue)
+                            Path { path in
+                                path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                                path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 100), endAngle: Angle(degrees: 80), clockwise: true)
+                            }.fill(Color.pink)
+                            Path { path in
+                                path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                                path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 80), endAngle: Angle(degrees: 0), clockwise: true)
+                            }.fill(Color.purple)
+                            Text(customer1.income)
+                                .offset(y:-75)
+                                .foregroundColor(Color.white)
+                            Text(customer1.saving)
+                                .foregroundColor(Color.white)
+                                .offset(y:-50)
+                            Text(customer1.house)
+                                .foregroundColor(Color.white)
+                                .offset(y:-25)
+                            Text(customer1.essent)
+                                .foregroundColor(Color.white)
+                                .offset(y:-100)
+                                
+                        }
+                        .offset(y:-350)
+                    }
+                    
+                    /*let customer2 = financialDetailsInt(incomeInt: Int(monthlyIncome) ?? 0, savingInt: Int(savingGoal) ?? 0, houseInt: Int(housing) ?? 0, essentInt: Int(essential) ?? 0) */
+                    /*NavigationLink(
                         destination: ContentView3(),
                             label: {
                                 Text("done")
                                     .offset(y:200)
-                            })
-                        .offset(y:200)
-                        Text(customer1.income)
-                            .offset(y:-250)
-                            .foregroundColor(Color.white)
-                        Text(customer1.saving)
-                            .foregroundColor(Color.white)
-                            .offset(y:-200)
-                        Text(customer1.house)
-                            .foregroundColor(Color.white)
-                            .offset(y:-150)
-                        Text(customer1.essent)
-                            .foregroundColor(Color.white)
-                            .offset(y:-100)
+                            }) */
+                        //.offset(y:200)
                         }
                  else {
                     Image("sad-cat-button")
@@ -128,8 +167,7 @@ struct ContentView2: View {
         }
 }
 
-
-
+//THIS SHOWS THE FIRST VIEW AND ASKS THE USER FOR THE INPUT
 struct ContentView2_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -137,3 +175,49 @@ struct ContentView2_Previews: PreviewProvider {
         }
     }
 }
+
+//NOW WE WILL DO THE CALCULATIONS AND TRY TO COVER THE LAST VIEW FUNCTION TO REPLACE IT INSTEAD OF CREATING A WHOLE NEW FOLDER
+
+/*
+struct ContentView3: View {
+    var body: some View {
+        ZStack(alignment: .top) {
+            HStack() {
+                Text("Budget Summary")
+                    .font(.callout)
+                    .bold()
+            }.padding()
+            ZStack() {
+                Path { path in
+                    path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                    path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 290), clockwise: true)
+                }.fill(Color.green)
+                Path { path in
+                    path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                    path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 290), endAngle: Angle(degrees: 180), clockwise: true)
+                }.fill(Color.yellow)
+                Path { path in
+                    path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                    path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 100), clockwise: true)
+                }.fill(Color.blue)
+                Path { path in
+                    path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                    path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 100), endAngle: Angle(degrees: 80), clockwise: true)
+                }.fill(Color.pink)
+                Path { path in
+                    path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                    path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 80), endAngle: Angle(degrees: 0), clockwise: true)
+                }.fill(Color.purple)
+                Text("This is another TEST")
+            }
+        }
+    }
+}
+
+struct ContentView3_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContentView3()
+        }
+    }
+} */

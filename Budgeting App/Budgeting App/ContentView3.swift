@@ -5,7 +5,7 @@
 //  Created by Devin Heng on 5/1/21.
 //
 
-import Foundation
+/*import Foundation
 //
 //  ContentView3.swift
 //  Budgeting App
@@ -22,6 +22,7 @@ extension UIScreen {
 }
 
 struct ContentView3: View {
+    
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -51,6 +52,7 @@ struct ContentView3: View {
                     path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
                     path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 80), endAngle: Angle(degrees: 0), clockwise: true)
                 }.fill(Color.purple)
+                Text("This is a test")
             }
         }
     }
@@ -62,4 +64,4 @@ struct ContentView3_Previews: PreviewProvider {
             ContentView3()
         }
     }
-}
+} */
