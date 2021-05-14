@@ -103,7 +103,8 @@ struct ContentView2: View {
                     //let housingInt = Int(housing) ?? 0
                     //let essentialInt = Int(essential) ?? 0
                     let customer1 = FinancialDetails(income: monthlyIncome, saving: savingGoal, house: housing, essent: essential)
-                    let customer2 = financialDetailsInt(incomeInt: Int(monthlyIncome) ?? 0, savingInt: Int(savingGoal) ?? 0, houseInt: Int(housing) ?? 0, essentInt: Int(essential) ?? 0)
+                    /*let customer2 = financialDetailsInt(incomeInt: Int(monthlyIncome) ?? 0, savingInt: Int(savingGoal) ?? 0, houseInt: Int(housing) ?? 0, essentInt: Int(essential) ?? 0) */
+                    //let customer1monthlyIncome = Double(customer1.income)
                     ZStack(alignment: .top) {
                         HStack() {
                             Text("Budget Summary")
