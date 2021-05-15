@@ -53,38 +53,40 @@ struct ContentView2: View {
                         .font(.callout)
                         .foregroundColor(Color.white)
                         .bold()
-                        .offset(y: -50)
+                        .offset(y: -250)
                     TextField("Enter monthly income...", text: $monthlyIncome)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .offset(y: -50)
+                        .offset(y: -250)
                 }.padding()
                 HStack(alignment: .center) {
                     Text("Saving Goal")
                         .foregroundColor(Color.white)
                         .font(.callout)
                         .bold()
+                        .offset(y: -200)
                     TextField("Enter saving goal...", text: $savingGoal)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .offset(y: -200)
                 }.padding()
                 HStack(alignment: .center) {
                     Text("Housing/Utilities")
                         .foregroundColor(Color.white)
                         .font(.callout)
                         .bold()
-                        .offset(y: 50)
+                        .offset(y: -150)
                     TextField("Enter amount", text: $housing)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .offset(y: 50)
+                        .offset(y: -150)
                 }.padding()
                 HStack(alignment: .center) {
                     Text("Essentials")
                         .foregroundColor(Color.white)
                         .font(.callout)
                         .bold()
-                        .offset(y: 100)
+                        .offset(y: -100)
                     TextField("Enter amount", text: $essential)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .offset(y: 100)
+                        .offset(y: -100)
                 }.padding()
                 
                 Button("Get Breakdown") { //within this block is where you tell the button what you want it to do
@@ -93,7 +95,7 @@ struct ContentView2: View {
                     .padding()
                     .background(Color(red: 0, green: 0, blue: 0.3))
                     .clipShape(Capsule())
-                .offset(y: 200)
+                .offset(y: 0)
                 
                 //this is where the action happens when the button gets pressed
                 if(pressed == true){
@@ -132,7 +134,7 @@ struct ContentView2: View {
                                 path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
                                 path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 80), endAngle: Angle(degrees: 0), clockwise: true)
                             }.fill(Color.purple)
-                            Text(customer1.income)
+                           /* Text(customer1.income)
                                 .offset(y:-75)
                                 .foregroundColor(Color.white)
                             Text(customer1.saving)
@@ -143,10 +145,10 @@ struct ContentView2: View {
                                 .offset(y:-25)
                             Text(customer1.essent)
                                 .foregroundColor(Color.white)
-                                .offset(y:-100)
+                                .offset(y:-100) */
                                 
                         }
-                        .offset(y:-350)
+                        .offset(y:100)
                     }
                     
                     /*let customer2 = financialDetailsInt(incomeInt: Int(monthlyIncome) ?? 0, savingInt: Int(savingGoal) ?? 0, houseInt: Int(housing) ?? 0, essentInt: Int(essential) ?? 0) */
@@ -158,12 +160,6 @@ struct ContentView2: View {
                             }) */
                         //.offset(y:200)
                         }
-                 else {
-                    Image("sad-cat-button")
-                        .resizable()
-                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .offset(y:200)
-                }
             }
         }
 }
