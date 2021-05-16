@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		622E1005263169BD00C79E52 /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622E1004263169BD00C79E52 /* ContentView2.swift */; };
 		627652C22631508E00C920D5 /* Budgeting_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627652C12631508E00C920D5 /* Budgeting_AppApp.swift */; };
 		627652C42631508E00C920D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627652C32631508E00C920D5 /* ContentView.swift */; };
 		627652C62631508F00C920D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627652C52631508F00C920D5 /* Assets.xcassets */; };
@@ -35,7 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		622E1004263169BD00C79E52 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		627652BE2631508E00C920D5 /* Budgeting App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budgeting App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		627652C12631508E00C920D5 /* Budgeting_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budgeting_AppApp.swift; sourceTree = "<group>"; };
 		627652C32631508E00C920D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				627652C32631508E00C920D5 /* ContentView.swift */,
 				627652C52631508F00C920D5 /* Assets.xcassets */,
 				627652CA2631508F00C920D5 /* Info.plist */,
-				622E1004263169BD00C79E52 /* ContentView2.swift */,
 				627652C72631508F00C920D5 /* Preview Content */,
 				628ABB49263E162F00BDC76B /* ContentView3.swift */,
 			);
@@ -265,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				622E1005263169BD00C79E52 /* ContentView2.swift in Sources */,
 				627652C42631508E00C920D5 /* ContentView.swift in Sources */,
 				628ABB4A263E162F00BDC76B /* ContentView3.swift in Sources */,
 				627652C22631508E00C920D5 /* Budgeting_AppApp.swift in Sources */,

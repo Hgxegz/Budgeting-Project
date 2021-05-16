@@ -19,26 +19,58 @@ struct ContentView3: View {
     @State var savingGoal: String = ""
     @State var housing: String = ""
     @State var essential: String = ""
-    @State var pressed: Bool = false
+    @State var pressed: Int = 0
     var body: some View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            VStack{
-                Text(monthlyIncome)
-                    .foregroundColor(.white)
-                Text(savingGoal)
-                    .foregroundColor(.white)
-                Text(housing)
-                    .foregroundColor(.white)
-                Text(essential)
-                    .foregroundColor(.white)
-                if(pressed == false){
+                if(pressed == 0){
                     ContentView2(monthlyIncome: $monthlyIncome, savingGoal: $savingGoal,
                         housing: $housing,
                         essential: $essential,
                         pressed: $pressed)
                 }
+                if(pressed == 2){
+                    Text("RESULTS")
+                        .font(.system(size: 20.0))
+                        .foregroundColor(.white)
+                        .offset(y:-200)
+                    ZStack() {
+                    Path { path in
+                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 290), clockwise: true)
+                    }.fill(Color.green)
+                    Path { path in
+                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 290), endAngle: Angle(degrees: 180), clockwise: true)
+                    }.fill(Color.yellow)
+                    Path { path in
+                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 100), clockwise: true)
+                    }.fill(Color.blue)
+                    Path { path in
+                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 100), endAngle: Angle(degrees: 80), clockwise: true)
+                    }.fill(Color.pink)
+                    Path { path in
+                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 80), endAngle: Angle(degrees: 0), clockwise: true)
+                    }.fill(Color.purple)
+                   /* Text(customer1.income)
+                        .offset(y:-75)
+                        .foregroundColor(Color.white)
+                    Text(customer1.saving)
+                        .foregroundColor(Color.white)
+                        .offset(y:-50)
+                    Text(customer1.house)
+                        .foregroundColor(Color.white)
+                        .offset(y:-25)
+                    Text(customer1.essent)
+                        .foregroundColor(Color.white)
+                        .offset(y:-100) */
+                        
+                }
+                .offset(y:-100)
                 }
             }
         }
@@ -49,7 +81,7 @@ struct ContentView2: View {
     @Binding var savingGoal: String
     @Binding var housing: String
     @Binding var essential: String
-    @Binding var pressed: Bool
+    @Binding var pressed: Int
     
     var body: some View {
         ZStack {
@@ -96,7 +128,7 @@ struct ContentView2: View {
                         .offset(y: -100)
                 }.padding()
         Button(action: {
-                pressed = true
+                pressed = 2
         }, label: {
             Text("Button")
                 .foregroundColor(.white)
@@ -105,7 +137,7 @@ struct ContentView2: View {
                 .background(Color.blue)
                 .cornerRadius(30)
         })
-        if(pressed == true){
+        if(pressed == 1){
             NavigationLink(
                 //destination: ContentView2(),
                 destination: ContentView3(),
