@@ -4,14 +4,11 @@
 //
 //  Created by Devin Heng on 4/18/21.
 //
-
 import SwiftUI
 
 
 struct ContentView: View {
     @State var pressed = false
-    @State private var userName: String = ""
-    @State private var passWord: String = ""
     
     var body: some View {
         NavigationView{
@@ -37,7 +34,7 @@ struct ContentView: View {
                 if(pressed == true){
                     NavigationLink(
                         //destination: ContentView2(),
-                        destination: ContentView2(),
+                        destination: ContentView3(),
                         label: {
                             Text("Start Budgeting")
                             
@@ -81,19 +78,5 @@ struct appLogo: View {
             .resizable()
             .offset(y:-250)
             .frame(width:400.0, height: 400.0)
-    }
-}
-
-struct LoginButtonContent: View {
-    var body: some View{
-        Text("Login")
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 200, height: 30)
-            .cornerRadius(35.0)
-            .padding()
-            .background(Color(red: 0, green: 0, blue: 0.3))
-            .clipShape(Capsule())
     }
 }
