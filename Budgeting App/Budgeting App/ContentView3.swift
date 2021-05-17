@@ -15,6 +15,7 @@ extension UIScreen {
 struct ContentView3: View {
     
     //these variables are to hold the user inputs
+    //initialize to 0.0 for when we convert to doubles
     @State var monthlyIncome: String = "0.0"
     @State var savingGoal: String = "0.0"
     @State var housing: String = "0.0"
@@ -22,9 +23,10 @@ struct ContentView3: View {
     @State var pressed: Int = 0
     var body: some View {
         ZStack {
-            Color.black
+            Color.black //background color of this page
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack{
+                //if the button has not been pressed then we don't do any action yet
                 if(pressed == 0){
                     ContentView2(monthlyIncome: $monthlyIncome, savingGoal: $savingGoal,
                         housing: $housing,
@@ -32,20 +34,23 @@ struct ContentView3: View {
                         pressed: $pressed)
                 }
             }
-            //da tingggga
-            //let values = [Double(savingGoal) ?? 0, Double(housing) ?? 0, Double(essential) ?? 0]
+            //we have to check if pressed == 2 so we dont show the chart if the user hasn't finished input yet
             if(pressed == 2){
+                //convert strings to doubles and if it cant then it turns to 0
                 let savingValue = Double(savingGoal) ?? 0
                 let housingValue = Double(housing) ?? 0
                 let essentialValue = Double(essential) ?? 0
                 let income = Double(monthlyIncome) ?? 0
                 
+                //we are converting the input values with respect to a circle in order to match it with a chart
                 let savingGoalArc: Double = ((savingValue * 360)/income)
                 let housingArc: Double = ((housingValue * 360)/income)
                 let essentialArc: Double = ((essentialValue * 360)/income)
                 let sumValues: Double = savingValue+housingValue+essentialValue
                 let remainder: Double = income-sumValues
                 VStack {
+                    //all the hstacks within this Vstack are to print out the results of the analysis
+                    //also color coordinates the chart with the meaning so the user knows
                     Text("RESULTS!")
                         .font(.system(size: 20.0))
                         .foregroundColor(.white)
@@ -84,13 +89,13 @@ struct ContentView3: View {
                         Text("Money left to spend: $" + "\(remainder)")
                             .foregroundColor(.green)
                     }
+                //creates the arc for the pie chart using the function to create the arc with the user input as the parameters
                 ZStack {
                     makeArc(rad: 100, start: 360, end: 0.0).fill(Color.green) //the entire pie to indicate the remainder
                     makeArc(rad: 100, start: 360, end: 360 - savingGoalArc).fill(Color.blue)
                     makeArc(rad: 100, start: 360 - savingGoalArc, end:360 - (savingGoalArc + housingArc)).fill(Color.yellow)
                     makeArc(rad: 100, start: 360 - (savingGoalArc + housingArc), end: 360 - (savingGoalArc + housingArc + essentialArc)).fill(Color.red)
                 }.offset(y:-245)
-               /* makeArc(rad: 100, start: 0.0, end: (numerator-((housingValue * 360)/income))).fill(Color.blue) */
             }
             }
 
@@ -98,7 +103,9 @@ struct ContentView3: View {
     }
 }
 
+//Function to make an arbitrary arc, specified in parameters with radius, starting angle, and ending angle
 func makeArc(rad: Double, start: Double, end: Double) -> Path {
+    //Makes a path which makes an arc and returns that path
     let newArc = Path { path in
         path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
         path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: CGFloat(rad), startAngle: Angle(degrees: start), endAngle: Angle(degrees: end), clockwise: true)
@@ -107,6 +114,7 @@ func makeArc(rad: Double, start: Double, end: Double) -> Path {
 }
 
 struct ContentView2: View {
+    //binding the variables from the ones we defined earlier so we can change with user input
     @Binding var monthlyIncome: String
     @Binding var savingGoal: String
     @Binding var housing: String
@@ -117,6 +125,7 @@ struct ContentView2: View {
         ZStack {
             Color.black
                 .ignoresSafeArea()
+            //setting up text fields for the user to enter values
             HStack(alignment: .center) {
                 Text("Monthly Income")
                     .font(.callout)
@@ -157,6 +166,7 @@ struct ContentView2: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .offset(y: -100)
             }.padding()
+        //if this button is pressed, then the value will change to 2 and make the actual chart
         Button(action: {
                 pressed = 2
         }, label: {
@@ -167,6 +177,7 @@ struct ContentView2: View {
                 .background(Color.blue)
                 .cornerRadius(30)
         })
+        //if pressed value is 1 then we direct into the view that asks for the inputs
         if(pressed == 1){
             NavigationLink(
                 //destination: ContentView2(),

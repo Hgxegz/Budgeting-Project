@@ -16,14 +16,15 @@ struct ContentView: View {
                 //Color.black
                     //.ignoresSafeArea()
                 //logo and app name
+                //background image to show the app is about saving money
                 Image("budgeting-background")
                             .resizable()
                             .scaledToFill()
                             .edgesIgnoringSafeArea(.all)
                             .blur(radius: 10)
-                appLogo()
+                appLogo() //function to show the app logo
                 //company slogan
-                sloganText()
+                sloganText() //function to show the app slogan
                     Button("Start Budgeting") { //within this block is where you tell the button what you want it to do
                     pressed = true
                     } //this section describes what it will look like
@@ -32,6 +33,7 @@ struct ContentView: View {
                     .clipShape(Capsule())
                     .offset(y:0)
                 if(pressed == true){
+                    //if we press the button, then we direct to another view
                     NavigationLink(
                         //destination: ContentView2(),
                         destination: ContentView3(),
@@ -63,6 +65,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+//creates a new view just for the text
 struct sloganText: View {
     var body: some View {
         Text("Start saving smarter TODAY!")
@@ -72,6 +75,7 @@ struct sloganText: View {
     }
 }
 
+//creates a new view to use image and show the logo
 struct appLogo: View {
     var body: some View {
         Image("logo")
