@@ -15,66 +15,96 @@ extension UIScreen {
 struct ContentView3: View {
     
     //these variables are to hold the user inputs
-    @State var monthlyIncome: String = ""
-    @State var savingGoal: String = ""
-    @State var housing: String = ""
-    @State var essential: String = ""
+    @State var monthlyIncome: String = "0.0"
+    @State var savingGoal: String = "0.0"
+    @State var housing: String = "0.0"
+    @State var essential: String = "0.0"
     @State var pressed: Int = 0
     var body: some View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            VStack{
                 if(pressed == 0){
                     ContentView2(monthlyIncome: $monthlyIncome, savingGoal: $savingGoal,
                         housing: $housing,
                         essential: $essential,
                         pressed: $pressed)
                 }
-                if(pressed == 2){
-                    Text("RESULTS")
+            }
+            //da tingggga
+            //let values = [Double(savingGoal) ?? 0, Double(housing) ?? 0, Double(essential) ?? 0]
+            if(pressed == 2){
+                let savingValue = Double(savingGoal) ?? 0
+                let housingValue = Double(housing) ?? 0
+                let essentialValue = Double(essential) ?? 0
+                let income = Double(monthlyIncome) ?? 0
+                
+                let savingGoalArc: Double = ((savingValue * 360)/income)
+                let housingArc: Double = ((housingValue * 360)/income)
+                let essentialArc: Double = ((essentialValue * 360)/income)
+                let sumValues: Double = savingValue+housingValue+essentialValue
+                let remainder: Double = income-sumValues
+                VStack {
+                    Text("RESULTS!")
                         .font(.system(size: 20.0))
                         .foregroundColor(.white)
-                        .offset(y:-200)
-                    ZStack() {
-                    Path { path in
-                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
-                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 290), clockwise: true)
-                    }.fill(Color.green)
-                    Path { path in
-                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
-                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 290), endAngle: Angle(degrees: 180), clockwise: true)
-                    }.fill(Color.yellow)
-                    Path { path in
-                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
-                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 100), clockwise: true)
-                    }.fill(Color.blue)
-                    Path { path in
-                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
-                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 100), endAngle: Angle(degrees: 80), clockwise: true)
-                    }.fill(Color.pink)
-                    Path { path in
-                        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
-                        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: 100, startAngle: Angle(degrees: 80), endAngle: Angle(degrees: 0), clockwise: true)
-                    }.fill(Color.purple)
-                   /* Text(customer1.income)
-                        .offset(y:-75)
-                        .foregroundColor(Color.white)
-                    Text(customer1.saving)
-                        .foregroundColor(Color.white)
-                        .offset(y:-50)
-                    Text(customer1.house)
-                        .foregroundColor(Color.white)
-                        .offset(y:-25)
-                    Text(customer1.essent)
-                        .foregroundColor(Color.white)
-                        .offset(y:-100) */
-                        
-                }
-                .offset(y:-100)
-                }
+                    HStack {
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 15, height: 15)
+                        Text("Income: $" + monthlyIncome)
+                            .foregroundColor(.white)
+                    }
+                    HStack {
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 15, height: 15)
+                        Text("Saving Goal: $" + savingGoal)
+                            .foregroundColor(.blue)
+                    }
+                    HStack {
+                        Circle()
+                            .fill(Color.yellow)
+                            .frame(width: 15, height: 15)
+                        Text("Housing Spending: $" + housing)
+                            .foregroundColor(.yellow)
+                    }
+                    HStack {
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 15, height: 15)
+                        Text("Essential Spending: $" + essential)
+                            .foregroundColor(.red)
+                    }
+                    HStack {
+                        Circle()
+                            .fill(Color.green)
+                            .frame(width: 15, height: 15)
+                        Text("Money left to spend: $" + "\(remainder)")
+                            .foregroundColor(.green)
+                    }
+                ZStack {
+                    makeArc(rad: 100, start: 360, end: 0.0).fill(Color.green) //the entire pie to indicate the remainder
+                    makeArc(rad: 100, start: 360, end: 360 - savingGoalArc).fill(Color.blue)
+                    makeArc(rad: 100, start: 360 - savingGoalArc, end:360 - (savingGoalArc + housingArc)).fill(Color.yellow)
+                    makeArc(rad: 100, start: 360 - (savingGoalArc + housingArc), end: 360 - (savingGoalArc + housingArc + essentialArc)).fill(Color.red)
+                }.offset(y:-245)
+               /* makeArc(rad: 100, start: 0.0, end: (numerator-((housingValue * 360)/income))).fill(Color.blue) */
             }
+            }
+
         }
     }
+}
+
+func makeArc(rad: Double, start: Double, end: Double) -> Path {
+    let newArc = Path { path in
+        path.move(to: CGPoint(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2))
+        path.addArc(center: .init(x: UIScreen.screenWidth/2, y: UIScreen.screenHeight/2), radius: CGFloat(rad), startAngle: Angle(degrees: start), endAngle: Angle(degrees: end), clockwise: true)
+    }
+    return newArc
+}
 
 struct ContentView2: View {
     @Binding var monthlyIncome: String
@@ -88,45 +118,45 @@ struct ContentView2: View {
             Color.black
                 .ignoresSafeArea()
             HStack(alignment: .center) {
-                    Text("Monthly Income")
-                        .font(.callout)
-                        .foregroundColor(Color.white)
-                        .bold()
-                        .offset(y: -250)
-                    TextField("Enter monthly income...", text: $monthlyIncome)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .offset(y: -250)
-                }.padding()
-                HStack(alignment: .center) {
-                    Text("Saving Goal")
-                        .foregroundColor(Color.white)
-                        .font(.callout)
-                        .bold()
-                        .offset(y: -200)
-                    TextField("Enter saving goal...", text: $savingGoal)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .offset(y: -200)
-                }.padding()
-                HStack(alignment: .center) {
-                    Text("Housing/Utilities")
-                        .foregroundColor(Color.white)
-                        .font(.callout)
-                        .bold()
-                        .offset(y: -150)
-                    TextField("Enter amount", text: $housing)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .offset(y: -150)
-                }.padding()
-                HStack(alignment: .center) {
-                    Text("Essentials")
-                        .foregroundColor(Color.white)
-                        .font(.callout)
-                        .bold()
-                        .offset(y: -100)
-                    TextField("Enter amount", text: $essential)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .offset(y: -100)
-                }.padding()
+                Text("Monthly Income")
+                    .font(.callout)
+                    .foregroundColor(Color.white)
+                    .bold()
+                    .offset(y: -250)
+                TextField("Enter monthly income...", text: $monthlyIncome)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .offset(y: -250)
+            }.padding()
+            HStack(alignment: .center) {
+                Text("Saving Goal")
+                    .foregroundColor(Color.white)
+                    .font(.callout)
+                    .bold()
+                    .offset(y: -200)
+                TextField("Enter saving goal...", text: $savingGoal)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .offset(y: -200)
+            }.padding()
+            HStack(alignment: .center) {
+                Text("Housing/Utilities")
+                    .foregroundColor(Color.white)
+                    .font(.callout)
+                    .bold()
+                    .offset(y: -150)
+                TextField("Enter amount", text: $housing)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .offset(y: -150)
+            }.padding()
+            HStack(alignment: .center) {
+                Text("Essentials")
+                    .foregroundColor(Color.white)
+                    .font(.callout)
+                    .bold()
+                    .offset(y: -100)
+                TextField("Enter amount", text: $essential)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .offset(y: -100)
+            }.padding()
         Button(action: {
                 pressed = 2
         }, label: {
